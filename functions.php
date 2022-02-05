@@ -1,6 +1,6 @@
 <?php
 // koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "phpdasar");
+$conn = mysqli_connect("sql6.freemysqlhosting.net", "sql6470572", "KhnV49M6aR", "sql6470572");
 
 function query($query)
 {
@@ -28,10 +28,9 @@ function tambah($data)
         return false;
     }
 
-    $query = "INSERT INTO mahasiswa
-                VALUES
-            ('', '$nama', '$npm', '$email', '$jurusan', '$gambar')
-            ";
+    $query = "INSERT INTO mahasiswa(`nama`, `npm`, `email`, `jurusan`, `gambar`) VALUES
+    ('$nama', '$npm', '$email', '$jurusan', '$gambar')
+    ";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
